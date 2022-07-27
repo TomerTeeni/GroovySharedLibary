@@ -1,4 +1,3 @@
-def call(Map config=[:]) {
-  checkout scm
-  sh "env | sort"
+def call() {
+    sh "echo Hello from groovy."
 }
