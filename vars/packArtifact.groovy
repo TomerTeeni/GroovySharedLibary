@@ -1,8 +1,7 @@
 def call(Map config = [:]) {
-     echo "Pack ${env.BUILD_NUMBER} "
-   //  sh 'rm archive'
-   //  sh 'mkdir archive'
-   //  sh 'echo test > archive/test.txt'
-     zip zipFile: "test_${env.BUILD_NUMBER}.zip", archive: false, dir: 'dist/'
-     archiveArtifacts artifacts: "test_${env.BUILD_NUMBER}.zip", fingerprint: true
+    
+     def filename =  "test_${env.BUILD_NUMBER}_${env.BUILD_ID}"
+     echo "Pack ${filename} "
+     zip zipFile: "test_${filename}.zip", archive: false, dir: 'dist/'
+     archiveArtifacts artifacts: "test_${filename}.zip", fingerprint: true
 }
